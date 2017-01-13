@@ -1,4 +1,9 @@
-@GenModel(editDirectory="/us.coastalhacking.semiotics.xcore.edit/src-gen", editorDirectory="/us.coastalhacking.semiotics.xcore.editor/src-gen")
+@GenModel(
+	editDirectory="/us.coastalhacking.semiotics.xcore.edit/src-gen",
+	editorDirectory="/us.coastalhacking.semiotics.xcore.editor/src-gen",
+	modelName="Semiotics",
+	fileExtensions="semiotics",
+	prefix="Semiotics")
 package us.coastalhacking.semiotics.xcore.model
 
 class SinkCatalog extends Labeled, Describable

@@ -16,17 +16,17 @@ import us.coastalhacking.semiotics.xcore.model.*;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage
  * @generated
  */
-public class ModelAdapterFactory extends AdapterFactoryImpl {
+public class SemioticsAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ModelPackage modelPackage;
+	protected static SemioticsPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -34,9 +34,9 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelAdapterFactory() {
+	public SemioticsAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ModelPackage.eINSTANCE;
+			modelPackage = SemioticsPackage.eINSTANCE;
 		}
 	}
 
@@ -65,8 +65,8 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelSwitch<Adapter> modelSwitch =
-		new ModelSwitch<Adapter>() {
+	protected SemioticsSwitch<Adapter> modelSwitch =
+		new SemioticsSwitch<Adapter>() {
 			@Override
 			public Adapter caseSinkCatalog(SinkCatalog object) {
 				return createSinkCatalogAdapter();
@@ -189,4 +189,4 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ModelAdapterFactory
+} //SemioticsAdapterFactory

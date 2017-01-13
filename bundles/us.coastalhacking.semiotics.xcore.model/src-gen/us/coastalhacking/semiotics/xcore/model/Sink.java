@@ -15,7 +15,7 @@ package us.coastalhacking.semiotics.xcore.model;
  *   <li>{@link us.coastalhacking.semiotics.xcore.model.Sink#getLanguage <em>Language</em>}</li>
  * </ul>
  *
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSink()
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSink()
  * @model
  * @generated
  */
@@ -32,7 +32,7 @@ public interface Sink extends Labeled, Describable {
 	 * @return the value of the '<em>Language</em>' attribute.
 	 * @see us.coastalhacking.semiotics.xcore.model.Language
 	 * @see #setLanguage(Language)
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSink_Language()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSink_Language()
 	 * @model unique="false"
 	 * @generated
 	 */

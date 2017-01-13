@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link us.coastalhacking.semiotics.xcore.model.Describable#getDescription <em>Description</em>}</li>
  * </ul>
  *
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getDescribable()
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getDescribable()
  * @model interface="true" abstract="true"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface Describable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getDescribable_Description()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getDescribable_Description()
 	 * @model unique="false"
 	 * @generated
 	 */

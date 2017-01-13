@@ -10,7 +10,7 @@
       <!-- @generated semiotics -->
       <factory
             uri="us.coastalhacking.semiotics.xcore.model"
-            class="us.coastalhacking.semiotics.xcore.model.provider.ModelItemProviderAdapterFactory"
+            class="us.coastalhacking.semiotics.xcore.model.provider.SemioticsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

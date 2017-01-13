@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link us.coastalhacking.semiotics.xcore.model.SinkCatalog#getSinkCategories <em>Sink Categories</em>}</li>
  * </ul>
  *
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSinkCatalog()
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSinkCatalog()
  * @model
  * @generated
  */
@@ -31,7 +31,7 @@ public interface SinkCatalog extends Labeled, Describable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sink Categories</em>' containment reference list.
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSinkCatalog_SinkCategories()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSinkCatalog_SinkCategories()
 	 * @model containment="true"
 	 * @generated
 	 */

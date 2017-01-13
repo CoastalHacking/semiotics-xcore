@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>Language</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getLanguage()
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getLanguage()
  * @model
  * @generated
  */

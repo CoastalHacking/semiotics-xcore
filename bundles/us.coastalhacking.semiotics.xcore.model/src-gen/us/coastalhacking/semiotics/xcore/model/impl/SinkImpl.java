@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import us.coastalhacking.semiotics.xcore.model.Describable;
 import us.coastalhacking.semiotics.xcore.model.Language;
-import us.coastalhacking.semiotics.xcore.model.ModelPackage;
+import us.coastalhacking.semiotics.xcore.model.SemioticsPackage;
 import us.coastalhacking.semiotics.xcore.model.Sink;
 
 /**
@@ -106,7 +106,7 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.SINK;
+		return SemioticsPackage.Literals.SINK;
 	}
 
 	/**
@@ -127,7 +127,7 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 		String oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINK__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, SemioticsPackage.SINK__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -148,7 +148,7 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINK__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, SemioticsPackage.SINK__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -169,7 +169,7 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 		Language oldLanguage = language;
 		language = newLanguage == null ? LANGUAGE_EDEFAULT : newLanguage;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINK__LANGUAGE, oldLanguage, language));
+			eNotify(new ENotificationImpl(this, Notification.SET, SemioticsPackage.SINK__LANGUAGE, oldLanguage, language));
 	}
 
 	/**
@@ -180,11 +180,11 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.SINK__LABEL:
+			case SemioticsPackage.SINK__LABEL:
 				return getLabel();
-			case ModelPackage.SINK__DESCRIPTION:
+			case SemioticsPackage.SINK__DESCRIPTION:
 				return getDescription();
-			case ModelPackage.SINK__LANGUAGE:
+			case SemioticsPackage.SINK__LANGUAGE:
 				return getLanguage();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -198,13 +198,13 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.SINK__LABEL:
+			case SemioticsPackage.SINK__LABEL:
 				setLabel((String)newValue);
 				return;
-			case ModelPackage.SINK__DESCRIPTION:
+			case SemioticsPackage.SINK__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case ModelPackage.SINK__LANGUAGE:
+			case SemioticsPackage.SINK__LANGUAGE:
 				setLanguage((Language)newValue);
 				return;
 		}
@@ -219,13 +219,13 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.SINK__LABEL:
+			case SemioticsPackage.SINK__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
-			case ModelPackage.SINK__DESCRIPTION:
+			case SemioticsPackage.SINK__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case ModelPackage.SINK__LANGUAGE:
+			case SemioticsPackage.SINK__LANGUAGE:
 				setLanguage(LANGUAGE_EDEFAULT);
 				return;
 		}
@@ -240,11 +240,11 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.SINK__LABEL:
+			case SemioticsPackage.SINK__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-			case ModelPackage.SINK__DESCRIPTION:
+			case SemioticsPackage.SINK__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case ModelPackage.SINK__LANGUAGE:
+			case SemioticsPackage.SINK__LANGUAGE:
 				return language != LANGUAGE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -259,7 +259,7 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Describable.class) {
 			switch (derivedFeatureID) {
-				case ModelPackage.SINK__DESCRIPTION: return ModelPackage.DESCRIBABLE__DESCRIPTION;
+				case SemioticsPackage.SINK__DESCRIPTION: return SemioticsPackage.DESCRIBABLE__DESCRIPTION;
 				default: return -1;
 			}
 		}
@@ -275,7 +275,7 @@ public class SinkImpl extends MinimalEObjectImpl.Container implements Sink {
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Describable.class) {
 			switch (baseFeatureID) {
-				case ModelPackage.DESCRIBABLE__DESCRIPTION: return ModelPackage.SINK__DESCRIPTION;
+				case SemioticsPackage.DESCRIBABLE__DESCRIPTION: return SemioticsPackage.SINK__DESCRIPTION;
 				default: return -1;
 			}
 		}

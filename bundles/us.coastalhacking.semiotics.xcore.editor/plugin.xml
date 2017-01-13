@@ -12,12 +12,12 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="us.coastalhacking.semiotics.xcore.model.presentation.ModelModelWizardID"
-            name="%_UI_ModelModelWizard_label"
-            class="us.coastalhacking.semiotics.xcore.model.presentation.ModelModelWizard"
+            id="us.coastalhacking.semiotics.xcore.model.presentation.SemioticsModelWizardID"
+            name="%_UI_SemioticsModelWizard_label"
+            class="us.coastalhacking.semiotics.xcore.model.presentation.SemioticsModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ModelModelFile.gif">
-         <description>%_UI_ModelModelWizard_description</description>
+            icon="icons/full/obj16/SemioticsModelFile.gif">
+         <description>%_UI_SemioticsModelWizard_description</description>
          <selection class="org.eclipse.core.resources.IResource"/>
       </wizard>
    </extension>
@@ -25,13 +25,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated semiotics -->
       <editor
-            id="us.coastalhacking.semiotics.xcore.model.presentation.ModelEditorID"
-            name="%_UI_ModelEditor_label"
-            icon="icons/full/obj16/ModelModelFile.gif"
-            extensions="model"
-            class="us.coastalhacking.semiotics.xcore.model.presentation.ModelEditor"
-            contributorClass="us.coastalhacking.semiotics.xcore.model.presentation.ModelActionBarContributor">
+            id="us.coastalhacking.semiotics.xcore.model.presentation.SemioticsEditorID"
+            name="%_UI_SemioticsEditor_label"
+            icon="icons/full/obj16/SemioticsModelFile.gif"
+            extensions="semiotics"
+            class="us.coastalhacking.semiotics.xcore.model.presentation.SemioticsEditor"
+            contributorClass="us.coastalhacking.semiotics.xcore.model.presentation.SemioticsActionBarContributor">
       </editor>
    </extension>
-
 </plugin>

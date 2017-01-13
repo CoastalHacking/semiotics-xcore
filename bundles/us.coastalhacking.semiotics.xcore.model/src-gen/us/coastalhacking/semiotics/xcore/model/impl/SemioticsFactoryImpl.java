@@ -19,24 +19,24 @@ import us.coastalhacking.semiotics.xcore.model.*;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
+public class SemioticsFactoryImpl extends EFactoryImpl implements SemioticsFactory {
 	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static ModelFactory init() {
+	public static SemioticsFactory init() {
 		try {
-			ModelFactory theModelFactory = (ModelFactory)EPackage.Registry.INSTANCE.getEFactory(ModelPackage.eNS_URI);
-			if (theModelFactory != null) {
-				return theModelFactory;
+			SemioticsFactory theSemioticsFactory = (SemioticsFactory)EPackage.Registry.INSTANCE.getEFactory(SemioticsPackage.eNS_URI);
+			if (theSemioticsFactory != null) {
+				return theSemioticsFactory;
 			}
 		}
 		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
-		return new ModelFactoryImpl();
+		return new SemioticsFactoryImpl();
 	}
 
 	/**
@@ -45,7 +45,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelFactoryImpl() {
+	public SemioticsFactoryImpl() {
 		super();
 	}
 
@@ -57,9 +57,9 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ModelPackage.SINK_CATALOG: return createSinkCatalog();
-			case ModelPackage.SINK_CATEGORY: return createSinkCategory();
-			case ModelPackage.SINK: return createSink();
+			case SemioticsPackage.SINK_CATALOG: return createSinkCatalog();
+			case SemioticsPackage.SINK_CATEGORY: return createSinkCategory();
+			case SemioticsPackage.SINK: return createSink();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -73,7 +73,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ModelPackage.LANGUAGE:
+			case SemioticsPackage.LANGUAGE:
 				return createLanguageFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -88,7 +88,7 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ModelPackage.LANGUAGE:
+			case SemioticsPackage.LANGUAGE:
 				return convertLanguageToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
@@ -150,8 +150,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelPackage getModelPackage() {
-		return (ModelPackage)getEPackage();
+	public SemioticsPackage getSemioticsPackage() {
+		return (SemioticsPackage)getEPackage();
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class ModelFactoryImpl extends EFactoryImpl implements ModelFactory {
 	 * @generated
 	 */
 	@Deprecated
-	public static ModelPackage getPackage() {
-		return ModelPackage.eINSTANCE;
+	public static SemioticsPackage getPackage() {
+		return SemioticsPackage.eINSTANCE;
 	}
 
-} //ModelFactoryImpl
+} //SemioticsFactoryImpl

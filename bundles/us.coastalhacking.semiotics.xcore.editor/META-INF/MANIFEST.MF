@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: us.coastalhacking.semiotics.xcore.model.editor;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: us.coastalhacking.semiotics.xcore.model.presentation.ModelEditorPlugin$Implementation
+Bundle-Activator: us.coastalhacking.semiotics.xcore.model.presentation.SemioticsEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

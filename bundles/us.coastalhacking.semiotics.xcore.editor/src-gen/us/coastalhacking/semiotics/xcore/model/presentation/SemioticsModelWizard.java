@@ -69,9 +69,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import us.coastalhacking.semiotics.xcore.model.ModelFactory;
-import us.coastalhacking.semiotics.xcore.model.ModelPackage;
-import us.coastalhacking.semiotics.xcore.model.provider.ModelEditPlugin;
+import us.coastalhacking.semiotics.xcore.model.SemioticsFactory;
+import us.coastalhacking.semiotics.xcore.model.SemioticsPackage;
+import us.coastalhacking.semiotics.xcore.model.provider.SemioticsEditPlugin;
 
 
 import org.eclipse.core.runtime.Path;
@@ -91,7 +91,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelModelWizard extends Wizard implements INewWizard {
+public class SemioticsModelWizard extends Wizard implements INewWizard {
 	/**
 	 * The supported extensions for created files.
 	 * <!-- begin-user-doc -->
@@ -99,7 +99,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final List<String> FILE_EXTENSIONS =
-		Collections.unmodifiableList(Arrays.asList(ModelEditorPlugin.INSTANCE.getString("_UI_ModelEditorFilenameExtensions").split("\\s*,\\s*")));
+		Collections.unmodifiableList(Arrays.asList(SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsEditorFilenameExtensions").split("\\s*,\\s*")));
 
 	/**
 	 * A formatted list of supported file extensions, suitable for display.
@@ -108,7 +108,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	public static final String FORMATTED_FILE_EXTENSIONS =
-		ModelEditorPlugin.INSTANCE.getString("_UI_ModelEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+		SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
 	/**
 	 * This caches an instance of the model package.
@@ -116,7 +116,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelPackage modelPackage = ModelPackage.eINSTANCE;
+	protected SemioticsPackage semioticsPackage = SemioticsPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -124,7 +124,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelFactory modelFactory = modelPackage.getModelFactory();
+	protected SemioticsFactory semioticsFactory = semioticsPackage.getSemioticsFactory();
 
 	/**
 	 * This is the file creation page.
@@ -132,7 +132,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelModelWizardNewFileCreationPage newFileCreationPage;
+	protected SemioticsModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -140,7 +140,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ModelModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected SemioticsModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -175,8 +175,8 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(ModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ModelEditorPlugin.INSTANCE.getImage("full/wizban/NewModel")));
+		setWindowTitle(SemioticsEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(SemioticsEditorPlugin.INSTANCE.getImage("full/wizban/NewSemiotics")));
 	}
 
 	/**
@@ -188,7 +188,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList<String>();
-			for (EClassifier eClassifier : modelPackage.getEClassifiers()) {
+			for (EClassifier eClassifier : semioticsPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
@@ -208,8 +208,8 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)modelPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = modelFactory.create(eClass);
+		EClass eClass = (EClass)semioticsPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = semioticsFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -259,7 +259,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							ModelEditorPlugin.INSTANCE.log(exception);
+							SemioticsEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -292,14 +292,14 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());					 	 
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), ModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), SemioticsEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			ModelEditorPlugin.INSTANCE.log(exception);
+			SemioticsEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -310,14 +310,14 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ModelModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class SemioticsModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public ModelModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public SemioticsModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -333,7 +333,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 				String extension = new Path(getFileName()).getFileExtension();
 				if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
 					String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions" : "_WARN_FilenameExtension";
-					setErrorMessage(ModelEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
+					setErrorMessage(SemioticsEditorPlugin.INSTANCE.getString(key, new Object [] { FORMATTED_FILE_EXTENSIONS }));
 					return false;
 				}
 				return true;
@@ -357,7 +357,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class ModelModelWizardInitialObjectCreationPage extends WizardPage {
+	public class SemioticsModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -385,7 +385,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public ModelModelWizardInitialObjectCreationPage(String pageId) {
+		public SemioticsModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -410,7 +410,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(ModelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(SemioticsEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -436,7 +436,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(ModelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(SemioticsEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -535,10 +535,10 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return ModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return SemioticsEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				ModelEditorPlugin.INSTANCE.log(mre);
+				SemioticsEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -551,7 +551,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 		protected Collection<String> getEncodings() {
 			if (encodings == null) {
 				encodings = new ArrayList<String>();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(ModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				for (StringTokenizer stringTokenizer = new StringTokenizer(SemioticsEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -569,10 +569,10 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new ModelModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(ModelEditorPlugin.INSTANCE.getString("_UI_ModelModelWizard_label"));
-		newFileCreationPage.setDescription(ModelEditorPlugin.INSTANCE.getString("_UI_ModelModelWizard_description"));
-		newFileCreationPage.setFileName(ModelEditorPlugin.INSTANCE.getString("_UI_ModelEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
+		newFileCreationPage = new SemioticsModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsModelWizard_label"));
+		newFileCreationPage.setDescription(SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsModelWizard_description"));
+		newFileCreationPage.setFileName(SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -598,7 +598,7 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = ModelEditorPlugin.INSTANCE.getString("_UI_ModelEditorFilenameDefaultBase");
+					String defaultModelBaseFilename = SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsEditorFilenameDefaultBase");
 					String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
@@ -608,9 +608,9 @@ public class ModelModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new ModelModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(ModelEditorPlugin.INSTANCE.getString("_UI_ModelModelWizard_label"));
-		initialObjectCreationPage.setDescription(ModelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage = new SemioticsModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(SemioticsEditorPlugin.INSTANCE.getString("_UI_SemioticsModelWizard_label"));
+		initialObjectCreationPage.setDescription(SemioticsEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

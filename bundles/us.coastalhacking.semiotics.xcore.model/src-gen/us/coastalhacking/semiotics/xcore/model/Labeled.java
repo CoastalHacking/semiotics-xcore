@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link us.coastalhacking.semiotics.xcore.model.Labeled#getLabel <em>Label</em>}</li>
  * </ul>
  *
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getLabeled()
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getLabeled()
  * @model interface="true" abstract="true"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface Labeled extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Label</em>' attribute.
 	 * @see #setLabel(String)
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getLabeled_Label()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getLabeled_Label()
 	 * @model unique="false"
 	 * @generated
 	 */

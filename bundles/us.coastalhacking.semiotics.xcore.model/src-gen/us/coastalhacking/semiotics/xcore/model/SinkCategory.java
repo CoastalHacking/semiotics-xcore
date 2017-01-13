@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link us.coastalhacking.semiotics.xcore.model.SinkCategory#getCWES <em>CWES</em>}</li>
  * </ul>
  *
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSinkCategory()
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSinkCategory()
  * @model
  * @generated
  */
@@ -33,7 +33,7 @@ public interface SinkCategory extends Labeled, Describable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sinks</em>' containment reference list.
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSinkCategory_Sinks()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSinkCategory_Sinks()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -49,7 +49,7 @@ public interface SinkCategory extends Labeled, Describable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Categories</em>' containment reference list.
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSinkCategory_SubCategories()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSinkCategory_SubCategories()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -65,7 +65,7 @@ public interface SinkCategory extends Labeled, Describable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>CWES</em>' attribute list.
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#getSinkCategory_CWES()
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#getSinkCategory_CWES()
 	 * @model unique="false"
 	 * @generated
 	 */

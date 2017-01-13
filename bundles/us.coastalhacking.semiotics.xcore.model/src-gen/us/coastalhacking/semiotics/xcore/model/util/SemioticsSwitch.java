@@ -19,17 +19,17 @@ import us.coastalhacking.semiotics.xcore.model.*;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see us.coastalhacking.semiotics.xcore.model.ModelPackage
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage
  * @generated
  */
-public class ModelSwitch<T> extends Switch<T> {
+public class SemioticsSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ModelPackage modelPackage;
+	protected static SemioticsPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -37,9 +37,9 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelSwitch() {
+	public SemioticsSwitch() {
 		if (modelPackage == null) {
-			modelPackage = ModelPackage.eINSTANCE;
+			modelPackage = SemioticsPackage.eINSTANCE;
 		}
 	}
 
@@ -66,7 +66,7 @@ public class ModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ModelPackage.SINK_CATALOG: {
+			case SemioticsPackage.SINK_CATALOG: {
 				SinkCatalog sinkCatalog = (SinkCatalog)theEObject;
 				T result = caseSinkCatalog(sinkCatalog);
 				if (result == null) result = caseLabeled(sinkCatalog);
@@ -74,7 +74,7 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.SINK_CATEGORY: {
+			case SemioticsPackage.SINK_CATEGORY: {
 				SinkCategory sinkCategory = (SinkCategory)theEObject;
 				T result = caseSinkCategory(sinkCategory);
 				if (result == null) result = caseLabeled(sinkCategory);
@@ -82,7 +82,7 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.SINK: {
+			case SemioticsPackage.SINK: {
 				Sink sink = (Sink)theEObject;
 				T result = caseSink(sink);
 				if (result == null) result = caseLabeled(sink);
@@ -90,13 +90,13 @@ public class ModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.LABELED: {
+			case SemioticsPackage.LABELED: {
 				Labeled labeled = (Labeled)theEObject;
 				T result = caseLabeled(labeled);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.DESCRIBABLE: {
+			case SemioticsPackage.DESCRIBABLE: {
 				Describable describable = (Describable)theEObject;
 				T result = caseDescribable(describable);
 				if (result == null) result = defaultCase(theEObject);
@@ -197,4 +197,4 @@ public class ModelSwitch<T> extends Switch<T> {
 		return null;
 	}
 
-} //ModelSwitch
+} //SemioticsSwitch

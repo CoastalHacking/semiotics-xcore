@@ -23,9 +23,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import us.coastalhacking.semiotics.xcore.model.ModelFactory;
-import us.coastalhacking.semiotics.xcore.model.ModelPackage;
+import us.coastalhacking.semiotics.xcore.model.SemioticsFactory;
+import us.coastalhacking.semiotics.xcore.model.SemioticsPackage;
 import us.coastalhacking.semiotics.xcore.model.SinkCatalog;
 
 /**
@@ -82,7 +81,7 @@ public class SinkCatalogItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Labeled_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Labeled_label_feature", "_UI_Labeled_type"),
-				 ModelPackage.Literals.LABELED__LABEL,
+				 SemioticsPackage.Literals.LABELED__LABEL,
 				 true,
 				 false,
 				 false,
@@ -104,7 +103,7 @@ public class SinkCatalogItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Describable_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Describable_description_feature", "_UI_Describable_type"),
-				 ModelPackage.Literals.DESCRIBABLE__DESCRIPTION,
+				 SemioticsPackage.Literals.DESCRIBABLE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -125,7 +124,7 @@ public class SinkCatalogItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.SINK_CATALOG__SINK_CATEGORIES);
+			childrenFeatures.add(SemioticsPackage.Literals.SINK_CATALOG__SINK_CATEGORIES);
 		}
 		return childrenFeatures;
 	}
@@ -181,11 +180,11 @@ public class SinkCatalogItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(SinkCatalog.class)) {
-			case ModelPackage.SINK_CATALOG__LABEL:
-			case ModelPackage.SINK_CATALOG__DESCRIPTION:
+			case SemioticsPackage.SINK_CATALOG__LABEL:
+			case SemioticsPackage.SINK_CATALOG__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case ModelPackage.SINK_CATALOG__SINK_CATEGORIES:
+			case SemioticsPackage.SINK_CATALOG__SINK_CATEGORIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,8 +204,8 @@ public class SinkCatalogItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.SINK_CATALOG__SINK_CATEGORIES,
-				 ModelFactory.eINSTANCE.createSinkCategory()));
+				(SemioticsPackage.Literals.SINK_CATALOG__SINK_CATEGORIES,
+				 SemioticsFactory.eINSTANCE.createSinkCategory()));
 	}
 
 	/**
@@ -217,7 +216,7 @@ public class SinkCatalogItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
+		return SemioticsEditPlugin.INSTANCE;
 	}
 
 }

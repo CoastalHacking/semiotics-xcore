@@ -20,12 +20,12 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see us.coastalhacking.semiotics.xcore.model.ModelFactory
+ * @see us.coastalhacking.semiotics.xcore.model.SemioticsFactory
  * @model kind="package"
- *        annotation="http://www.eclipse.org/emf/2002/GenModel editDirectory='/us.coastalhacking.semiotics.xcore.edit/src-gen' editorDirectory='/us.coastalhacking.semiotics.xcore.editor/src-gen' basePackage='us.coastalhacking.semiotics.xcore'"
+ *        annotation="http://www.eclipse.org/emf/2002/GenModel editDirectory='/us.coastalhacking.semiotics.xcore.edit/src-gen' editorDirectory='/us.coastalhacking.semiotics.xcore.editor/src-gen' modelName='Semiotics' fileExtensions='semiotics' prefix='Semiotics' basePackage='us.coastalhacking.semiotics.xcore'"
  * @generated
  */
-public interface ModelPackage extends EPackage {
+public interface SemioticsPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -56,14 +56,14 @@ public interface ModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ModelPackage eINSTANCE = us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl.init();
+	SemioticsPackage eINSTANCE = us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link us.coastalhacking.semiotics.xcore.model.Labeled <em>Labeled</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see us.coastalhacking.semiotics.xcore.model.Labeled
-	 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getLabeled()
+	 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getLabeled()
 	 * @generated
 	 */
 	int LABELED = 3;
@@ -100,7 +100,7 @@ public interface ModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see us.coastalhacking.semiotics.xcore.model.impl.SinkCatalogImpl
-	 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getSinkCatalog()
+	 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getSinkCatalog()
 	 * @generated
 	 */
 	int SINK_CATALOG = 0;
@@ -155,7 +155,7 @@ public interface ModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see us.coastalhacking.semiotics.xcore.model.impl.SinkCategoryImpl
-	 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getSinkCategory()
+	 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getSinkCategory()
 	 * @generated
 	 */
 	int SINK_CATEGORY = 1;
@@ -228,7 +228,7 @@ public interface ModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see us.coastalhacking.semiotics.xcore.model.impl.SinkImpl
-	 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getSink()
+	 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getSink()
 	 * @generated
 	 */
 	int SINK = 2;
@@ -283,7 +283,7 @@ public interface ModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see us.coastalhacking.semiotics.xcore.model.Describable
-	 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getDescribable()
+	 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getDescribable()
 	 * @generated
 	 */
 	int DESCRIBABLE = 4;
@@ -320,7 +320,7 @@ public interface ModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see us.coastalhacking.semiotics.xcore.model.Language
-	 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getLanguage()
+	 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getLanguage()
 	 * @generated
 	 */
 	int LANGUAGE = 5;
@@ -470,7 +470,7 @@ public interface ModelPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	ModelFactory getModelFactory();
+	SemioticsFactory getSemioticsFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -491,7 +491,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see us.coastalhacking.semiotics.xcore.model.impl.SinkCatalogImpl
-		 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getSinkCatalog()
+		 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getSinkCatalog()
 		 * @generated
 		 */
 		EClass SINK_CATALOG = eINSTANCE.getSinkCatalog();
@@ -509,7 +509,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see us.coastalhacking.semiotics.xcore.model.impl.SinkCategoryImpl
-		 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getSinkCategory()
+		 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getSinkCategory()
 		 * @generated
 		 */
 		EClass SINK_CATEGORY = eINSTANCE.getSinkCategory();
@@ -543,7 +543,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see us.coastalhacking.semiotics.xcore.model.impl.SinkImpl
-		 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getSink()
+		 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getSink()
 		 * @generated
 		 */
 		EClass SINK = eINSTANCE.getSink();
@@ -561,7 +561,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see us.coastalhacking.semiotics.xcore.model.Labeled
-		 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getLabeled()
+		 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getLabeled()
 		 * @generated
 		 */
 		EClass LABELED = eINSTANCE.getLabeled();
@@ -579,7 +579,7 @@ public interface ModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see us.coastalhacking.semiotics.xcore.model.Describable
-		 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getDescribable()
+		 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getDescribable()
 		 * @generated
 		 */
 		EClass DESCRIBABLE = eINSTANCE.getDescribable();
@@ -597,11 +597,11 @@ public interface ModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see us.coastalhacking.semiotics.xcore.model.Language
-		 * @see us.coastalhacking.semiotics.xcore.model.impl.ModelPackageImpl#getLanguage()
+		 * @see us.coastalhacking.semiotics.xcore.model.impl.SemioticsPackageImpl#getLanguage()
 		 * @generated
 		 */
 		EEnum LANGUAGE = eINSTANCE.getLanguage();
 
 	}
 
-} //ModelPackage
+} //SemioticsPackage

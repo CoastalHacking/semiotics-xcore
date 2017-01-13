@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import us.coastalhacking.semiotics.xcore.model.Describable;
-import us.coastalhacking.semiotics.xcore.model.ModelPackage;
+import us.coastalhacking.semiotics.xcore.model.SemioticsPackage;
 import us.coastalhacking.semiotics.xcore.model.Sink;
 import us.coastalhacking.semiotics.xcore.model.SinkCategory;
 
@@ -128,7 +128,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.SINK_CATEGORY;
+		return SemioticsPackage.Literals.SINK_CATEGORY;
 	}
 
 	/**
@@ -149,7 +149,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 		String oldLabel = label;
 		label = newLabel;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINK_CATEGORY__LABEL, oldLabel, label));
+			eNotify(new ENotificationImpl(this, Notification.SET, SemioticsPackage.SINK_CATEGORY__LABEL, oldLabel, label));
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.SINK_CATEGORY__DESCRIPTION, oldDescription, description));
+			eNotify(new ENotificationImpl(this, Notification.SET, SemioticsPackage.SINK_CATEGORY__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
@@ -180,7 +180,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	 */
 	public EList<Sink> getSinks() {
 		if (sinks == null) {
-			sinks = new EObjectContainmentEList<Sink>(Sink.class, this, ModelPackage.SINK_CATEGORY__SINKS);
+			sinks = new EObjectContainmentEList<Sink>(Sink.class, this, SemioticsPackage.SINK_CATEGORY__SINKS);
 		}
 		return sinks;
 	}
@@ -192,7 +192,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	 */
 	public EList<SinkCategory> getSubCategories() {
 		if (subCategories == null) {
-			subCategories = new EObjectContainmentEList<SinkCategory>(SinkCategory.class, this, ModelPackage.SINK_CATEGORY__SUB_CATEGORIES);
+			subCategories = new EObjectContainmentEList<SinkCategory>(SinkCategory.class, this, SemioticsPackage.SINK_CATEGORY__SUB_CATEGORIES);
 		}
 		return subCategories;
 	}
@@ -204,7 +204,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	 */
 	public EList<Integer> getCWES() {
 		if (cwes == null) {
-			cwes = new EDataTypeEList<Integer>(Integer.class, this, ModelPackage.SINK_CATEGORY__CWES);
+			cwes = new EDataTypeEList<Integer>(Integer.class, this, SemioticsPackage.SINK_CATEGORY__CWES);
 		}
 		return cwes;
 	}
@@ -217,9 +217,9 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.SINK_CATEGORY__SINKS:
+			case SemioticsPackage.SINK_CATEGORY__SINKS:
 				return ((InternalEList<?>)getSinks()).basicRemove(otherEnd, msgs);
-			case ModelPackage.SINK_CATEGORY__SUB_CATEGORIES:
+			case SemioticsPackage.SINK_CATEGORY__SUB_CATEGORIES:
 				return ((InternalEList<?>)getSubCategories()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -233,15 +233,15 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.SINK_CATEGORY__LABEL:
+			case SemioticsPackage.SINK_CATEGORY__LABEL:
 				return getLabel();
-			case ModelPackage.SINK_CATEGORY__DESCRIPTION:
+			case SemioticsPackage.SINK_CATEGORY__DESCRIPTION:
 				return getDescription();
-			case ModelPackage.SINK_CATEGORY__SINKS:
+			case SemioticsPackage.SINK_CATEGORY__SINKS:
 				return getSinks();
-			case ModelPackage.SINK_CATEGORY__SUB_CATEGORIES:
+			case SemioticsPackage.SINK_CATEGORY__SUB_CATEGORIES:
 				return getSubCategories();
-			case ModelPackage.SINK_CATEGORY__CWES:
+			case SemioticsPackage.SINK_CATEGORY__CWES:
 				return getCWES();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -256,21 +256,21 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.SINK_CATEGORY__LABEL:
+			case SemioticsPackage.SINK_CATEGORY__LABEL:
 				setLabel((String)newValue);
 				return;
-			case ModelPackage.SINK_CATEGORY__DESCRIPTION:
+			case SemioticsPackage.SINK_CATEGORY__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case ModelPackage.SINK_CATEGORY__SINKS:
+			case SemioticsPackage.SINK_CATEGORY__SINKS:
 				getSinks().clear();
 				getSinks().addAll((Collection<? extends Sink>)newValue);
 				return;
-			case ModelPackage.SINK_CATEGORY__SUB_CATEGORIES:
+			case SemioticsPackage.SINK_CATEGORY__SUB_CATEGORIES:
 				getSubCategories().clear();
 				getSubCategories().addAll((Collection<? extends SinkCategory>)newValue);
 				return;
-			case ModelPackage.SINK_CATEGORY__CWES:
+			case SemioticsPackage.SINK_CATEGORY__CWES:
 				getCWES().clear();
 				getCWES().addAll((Collection<? extends Integer>)newValue);
 				return;
@@ -286,19 +286,19 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.SINK_CATEGORY__LABEL:
+			case SemioticsPackage.SINK_CATEGORY__LABEL:
 				setLabel(LABEL_EDEFAULT);
 				return;
-			case ModelPackage.SINK_CATEGORY__DESCRIPTION:
+			case SemioticsPackage.SINK_CATEGORY__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case ModelPackage.SINK_CATEGORY__SINKS:
+			case SemioticsPackage.SINK_CATEGORY__SINKS:
 				getSinks().clear();
 				return;
-			case ModelPackage.SINK_CATEGORY__SUB_CATEGORIES:
+			case SemioticsPackage.SINK_CATEGORY__SUB_CATEGORIES:
 				getSubCategories().clear();
 				return;
-			case ModelPackage.SINK_CATEGORY__CWES:
+			case SemioticsPackage.SINK_CATEGORY__CWES:
 				getCWES().clear();
 				return;
 		}
@@ -313,15 +313,15 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.SINK_CATEGORY__LABEL:
+			case SemioticsPackage.SINK_CATEGORY__LABEL:
 				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
-			case ModelPackage.SINK_CATEGORY__DESCRIPTION:
+			case SemioticsPackage.SINK_CATEGORY__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case ModelPackage.SINK_CATEGORY__SINKS:
+			case SemioticsPackage.SINK_CATEGORY__SINKS:
 				return sinks != null && !sinks.isEmpty();
-			case ModelPackage.SINK_CATEGORY__SUB_CATEGORIES:
+			case SemioticsPackage.SINK_CATEGORY__SUB_CATEGORIES:
 				return subCategories != null && !subCategories.isEmpty();
-			case ModelPackage.SINK_CATEGORY__CWES:
+			case SemioticsPackage.SINK_CATEGORY__CWES:
 				return cwes != null && !cwes.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -336,7 +336,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == Describable.class) {
 			switch (derivedFeatureID) {
-				case ModelPackage.SINK_CATEGORY__DESCRIPTION: return ModelPackage.DESCRIBABLE__DESCRIPTION;
+				case SemioticsPackage.SINK_CATEGORY__DESCRIPTION: return SemioticsPackage.DESCRIBABLE__DESCRIPTION;
 				default: return -1;
 			}
 		}
@@ -352,7 +352,7 @@ public class SinkCategoryImpl extends MinimalEObjectImpl.Container implements Si
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == Describable.class) {
 			switch (baseFeatureID) {
-				case ModelPackage.DESCRIBABLE__DESCRIPTION: return ModelPackage.SINK_CATEGORY__DESCRIPTION;
+				case SemioticsPackage.DESCRIBABLE__DESCRIPTION: return SemioticsPackage.SINK_CATEGORY__DESCRIPTION;
 				default: return -1;
 			}
 		}

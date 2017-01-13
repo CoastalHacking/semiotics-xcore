@@ -154,18 +154,18 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import us.coastalhacking.semiotics.xcore.model.provider.ModelItemProviderAdapterFactory;
+import us.coastalhacking.semiotics.xcore.model.provider.SemioticsItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a Model model editor.
+ * This is an example of a Semiotics model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelEditor
+public class SemioticsEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -327,18 +327,18 @@ public class ModelEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(ModelEditor.this);
+						getActionBarContributor().setActiveEditor(SemioticsEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(ModelEditor.this);
+						getActionBarContributor().setActiveEditor(SemioticsEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == ModelEditor.this) {
+				else if (p == SemioticsEditor.this) {
 					handleActivate();
 				}
 			}
@@ -511,7 +511,7 @@ public class ModelEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(ModelEditor.this, false);
+										 getSite().getPage().closeEditor(SemioticsEditor.this, false);
 									 }
 								 }
 							 });
@@ -522,7 +522,7 @@ public class ModelEditor
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == ModelEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == SemioticsEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -530,7 +530,7 @@ public class ModelEditor
 					}
 				}
 				catch (CoreException exception) {
-					ModelEditorPlugin.INSTANCE.log(exception);
+					SemioticsEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -554,7 +554,7 @@ public class ModelEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(ModelEditor.this, false);
+				getSite().getPage().closeEditor(SemioticsEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -646,7 +646,7 @@ public class ModelEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					ModelEditorPlugin.INSTANCE.log(exception);
+					SemioticsEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -657,7 +657,7 @@ public class ModelEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						ModelEditorPlugin.INSTANCE.log(exception);
+						SemioticsEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -684,7 +684,7 @@ public class ModelEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelEditor() {
+	public SemioticsEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -701,7 +701,7 @@ public class ModelEditor
 		adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ModelItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SemioticsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1022,7 +1022,7 @@ public class ModelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ModelEditor.this) {
+					new ViewerPane(getSite().getPage(), SemioticsEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1056,7 +1056,7 @@ public class ModelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ModelEditor.this) {
+					new ViewerPane(getSite().getPage(), SemioticsEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1085,7 +1085,7 @@ public class ModelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ModelEditor.this) {
+					new ViewerPane(getSite().getPage(), SemioticsEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1110,7 +1110,7 @@ public class ModelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ModelEditor.this) {
+					new ViewerPane(getSite().getPage(), SemioticsEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1137,7 +1137,7 @@ public class ModelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ModelEditor.this) {
+					new ViewerPane(getSite().getPage(), SemioticsEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1180,7 +1180,7 @@ public class ModelEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), ModelEditor.this) {
+					new ViewerPane(getSite().getPage(), SemioticsEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1400,8 +1400,8 @@ public class ModelEditor
 			new ExtendedPropertySheetPage(editingDomain) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					ModelEditor.this.setSelectionToViewer(selection);
-					ModelEditor.this.setFocus();
+					SemioticsEditor.this.setSelectionToViewer(selection);
+					SemioticsEditor.this.setFocus();
 				}
 
 				@Override
@@ -1523,7 +1523,7 @@ public class ModelEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			ModelEditorPlugin.INSTANCE.log(exception);
+			SemioticsEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1727,7 +1727,7 @@ public class ModelEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return ModelEditorPlugin.INSTANCE.getString(key);
+		return SemioticsEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1737,7 +1737,7 @@ public class ModelEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return ModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return SemioticsEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**

@@ -21,8 +21,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import us.coastalhacking.semiotics.xcore.model.ModelPackage;
+import us.coastalhacking.semiotics.xcore.model.SemioticsPackage;
 import us.coastalhacking.semiotics.xcore.model.Sink;
 
 /**
@@ -80,7 +79,7 @@ public class SinkItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Labeled_label_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Labeled_label_feature", "_UI_Labeled_type"),
-				 ModelPackage.Literals.LABELED__LABEL,
+				 SemioticsPackage.Literals.LABELED__LABEL,
 				 true,
 				 false,
 				 false,
@@ -102,7 +101,7 @@ public class SinkItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Describable_description_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Describable_description_feature", "_UI_Describable_type"),
-				 ModelPackage.Literals.DESCRIBABLE__DESCRIPTION,
+				 SemioticsPackage.Literals.DESCRIBABLE__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -124,7 +123,7 @@ public class SinkItemProvider
 				 getResourceLocator(),
 				 getString("_UI_Sink_language_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Sink_language_feature", "_UI_Sink_type"),
-				 ModelPackage.Literals.SINK__LANGUAGE,
+				 SemioticsPackage.Literals.SINK__LANGUAGE,
 				 true,
 				 false,
 				 false,
@@ -171,9 +170,9 @@ public class SinkItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Sink.class)) {
-			case ModelPackage.SINK__LABEL:
-			case ModelPackage.SINK__DESCRIPTION:
-			case ModelPackage.SINK__LANGUAGE:
+			case SemioticsPackage.SINK__LABEL:
+			case SemioticsPackage.SINK__DESCRIPTION:
+			case SemioticsPackage.SINK__LANGUAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -200,7 +199,7 @@ public class SinkItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
+		return SemioticsEditPlugin.INSTANCE;
 	}
 
 }

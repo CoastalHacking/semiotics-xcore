@@ -10,7 +10,7 @@
       <!-- @generated semiotics -->
       <package
             uri="us.coastalhacking.semiotics.xcore.model"
-            class="us.coastalhacking.semiotics.xcore.model.ModelPackage"
+            class="us.coastalhacking.semiotics.xcore.model.SemioticsPackage"
             genModel="model/semiotics.xcore"/>
    </extension>
 

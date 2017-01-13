@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import us.coastalhacking.semiotics.xcore.model.Describable;
 import us.coastalhacking.semiotics.xcore.model.Labeled;
 import us.coastalhacking.semiotics.xcore.model.Language;
-import us.coastalhacking.semiotics.xcore.model.ModelFactory;
-import us.coastalhacking.semiotics.xcore.model.ModelPackage;
+import us.coastalhacking.semiotics.xcore.model.SemioticsFactory;
+import us.coastalhacking.semiotics.xcore.model.SemioticsPackage;
 import us.coastalhacking.semiotics.xcore.model.Sink;
 import us.coastalhacking.semiotics.xcore.model.SinkCatalog;
 import us.coastalhacking.semiotics.xcore.model.SinkCategory;
@@ -26,7 +26,7 @@ import us.coastalhacking.semiotics.xcore.model.SinkCategory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
+public class SemioticsPackageImpl extends EPackageImpl implements SemioticsPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,12 +80,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see us.coastalhacking.semiotics.xcore.model.ModelPackage#eNS_URI
+	 * @see us.coastalhacking.semiotics.xcore.model.SemioticsPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private ModelPackageImpl() {
-		super(eNS_URI, ModelFactory.eINSTANCE);
+	private SemioticsPackageImpl() {
+		super(eNS_URI, SemioticsFactory.eINSTANCE);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
 	 * 
-	 * <p>This method is used to initialize {@link ModelPackage#eINSTANCE} when that field is accessed.
+	 * <p>This method is used to initialize {@link SemioticsPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,11 +107,11 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static ModelPackage init() {
-		if (isInited) return (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+	public static SemioticsPackage init() {
+		if (isInited) return (SemioticsPackage)EPackage.Registry.INSTANCE.getEPackage(SemioticsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ModelPackageImpl());
+		SemioticsPackageImpl theSemioticsPackage = (SemioticsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SemioticsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SemioticsPackageImpl());
 
 		isInited = true;
 
@@ -119,18 +119,18 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		EcorePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theModelPackage.createPackageContents();
+		theSemioticsPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theModelPackage.initializePackageContents();
+		theSemioticsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theModelPackage.freeze();
+		theSemioticsPackage.freeze();
 
   
 		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(ModelPackage.eNS_URI, theModelPackage);
-		return theModelPackage;
+		EPackage.Registry.INSTANCE.put(SemioticsPackage.eNS_URI, theSemioticsPackage);
+		return theSemioticsPackage;
 	}
 
 	/**
@@ -255,8 +255,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelFactory getModelFactory() {
-		return (ModelFactory)getEFactoryInstance();
+	public SemioticsFactory getSemioticsFactory() {
+		return (SemioticsFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -363,4 +363,4 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createResource(eNS_URI);
 	}
 
-} //ModelPackageImpl
+} //SemioticsPackageImpl

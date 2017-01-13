@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import us.coastalhacking.semiotics.xcore.model.util.ModelAdapterFactory;
+import us.coastalhacking.semiotics.xcore.model.util.SemioticsAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -32,7 +32,7 @@ import us.coastalhacking.semiotics.xcore.model.util.ModelAdapterFactory;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModelItemProviderAdapterFactory extends ModelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class SemioticsItemProviderAdapterFactory extends SemioticsAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -63,7 +63,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ModelItemProviderAdapterFactory() {
+	public SemioticsItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
