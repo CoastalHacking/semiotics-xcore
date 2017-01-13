@@ -1,0 +1,34 @@
+@GenModel(editDirectory="/us.coastalhacking.semiotics.xcore.edit/src-gen", editorDirectory="/us.coastalhacking.semiotics.xcore.editor/src-gen")
+package us.coastalhacking.semiotics.xcore.model
+
+class SinkCatalog extends Labeled, Describable
+{
+	contains SinkCategory[] sinkCategories
+}
+
+class SinkCategory extends Labeled, Describable
+{
+	contains Sink[] sinks
+	contains SinkCategory[] subCategories
+	int[] CWES
+}
+
+class Sink extends Labeled, Describable
+{
+	Language language	
+}
+
+enum Language
+{
+	Java
+}
+
+interface Labeled
+{
+	String label	
+}
+
+interface Describable
+{
+	String description
+}
