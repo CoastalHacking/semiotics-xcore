@@ -3,10 +3,12 @@
 package us.coastalhacking.semiotics.xcore.model.presentation;
 
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.osgi.framework.BundleContext;
+import org.osgi.util.tracker.ServiceTracker;
+
+import us.coastalhacking.semiotics.xcore.model.transformation.Controller;
 
 /**
  * This is the central singleton for the Semiotics editor plugin.
@@ -73,6 +75,40 @@ public final class SemioticsEditorPlugin extends EMFPlugin {
 	 * @generated
 	 */
 	public static class Implementation extends EclipseUIPlugin {
+
+		private ServiceTracker<Controller, Controller> controllerServiceTracker;
+
+		/* (non-Javadoc)
+		 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+		 */
+		@Override
+		public void start(BundleContext context) throws Exception {
+			// Must call super first
+			super.start(context);
+			controllerServiceTracker = new ServiceTracker<>(context, Controller.class, null);
+			controllerServiceTracker.open();
+
+		}
+
+		/* (non-Javadoc)
+		 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+		 */
+		@Override
+		public void stop(BundleContext context) throws Exception {
+			// Must call super and call it last
+			try {
+				controllerServiceTracker.close();
+				controllerServiceTracker = null;
+			}
+			finally {
+				super.stop(context);
+			}
+		}
+
+		public Controller getController() {
+			return controllerServiceTracker == null ? null : controllerServiceTracker.getService();
+		}
+		
 		/**
 		 * Creates an instance.
 		 * <!-- begin-user-doc -->
@@ -86,6 +122,7 @@ public final class SemioticsEditorPlugin extends EMFPlugin {
 			//
 			plugin = this;
 		}
+
 	}
 
 }

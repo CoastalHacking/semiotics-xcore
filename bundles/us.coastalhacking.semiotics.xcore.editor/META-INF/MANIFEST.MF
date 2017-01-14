@@ -16,3 +16,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Import-Package: org.osgi.service.component.annotations;version="[1.2.0,2.0.0)";resolution:=optional,
+ us.coastalhacking.semiotics.xcore.model.transformation;org.osgi.util.tracker

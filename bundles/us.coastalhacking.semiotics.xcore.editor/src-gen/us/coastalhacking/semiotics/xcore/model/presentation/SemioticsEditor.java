@@ -62,6 +62,7 @@ import org.eclipse.swt.custom.CTabFolder;
 
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.FileTransfer;
+import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 
 import org.eclipse.swt.events.ControlAdapter;
@@ -154,6 +155,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
+import us.coastalhacking.semiotics.xcore.editor.dnd.OsgiEditingDomainViewerDropAdapter;
 import us.coastalhacking.semiotics.xcore.model.provider.SemioticsItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -925,7 +927,7 @@ public class SemioticsEditor
 	 * This creates a context menu for the viewer and adds a listener as well registering the menu for extension.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createContextMenuFor(StructuredViewer viewer) {
 		MenuManager contextMenu = new MenuManager("#PopUp");
@@ -936,10 +938,15 @@ public class SemioticsEditor
 		viewer.getControl().setMenu(menu);
 		getSite().registerContextMenu(contextMenu, new UnwrappingSelectionProvider(viewer));
 
-		int dndOperations = DND.DROP_COPY | DND.DROP_MOVE | DND.DROP_LINK;
-		Transfer[] transfers = new Transfer[] { LocalTransfer.getInstance(), LocalSelectionTransfer.getTransfer(), FileTransfer.getInstance() };
+		int dndOperations = DND.DROP_COPY | DND.DROP_LINK;
+		Transfer[] transfers = new Transfer[] {
+			LocalTransfer.getInstance(),
+			LocalSelectionTransfer.getTransfer(),
+		    TextTransfer.getInstance(),
+			FileTransfer.getInstance()
+		};
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new EditingDomainViewerDropAdapter(editingDomain, viewer));
+		viewer.addDropSupport(dndOperations, transfers, new OsgiEditingDomainViewerDropAdapter(editingDomain, viewer));
 	}
 
 	/**
