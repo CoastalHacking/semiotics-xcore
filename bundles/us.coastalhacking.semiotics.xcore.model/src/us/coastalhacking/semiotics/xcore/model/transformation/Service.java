@@ -7,4 +7,6 @@ public interface Service {
 	Collection<?> transform(Object source, Object target);
 
 	boolean isTransformable(Object source, Object target);
+	
+	boolean isSourceSupported(Object source);
 }

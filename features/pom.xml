@@ -13,6 +13,7 @@
 	</parent>
 
 	<modules>
-		<module>us.coastalhacking.semiotics.xcore.feature</module>
+		<module>us.coastalhacking.semiotics.xcore.api.feature</module>
+		<module>us.coastalhacking.semiotics.xcore.ui.feature</module>
 	</modules>
 </project>

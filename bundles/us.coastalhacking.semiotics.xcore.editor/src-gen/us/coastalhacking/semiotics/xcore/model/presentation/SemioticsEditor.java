@@ -141,7 +141,6 @@ import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 
 import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
 
@@ -154,7 +153,7 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import us.coastalhacking.semiotics.xcore.editor.dnd.OsgiEditingDomainViewerDropAdapter;
+import us.coastalhacking.semiotics.xcore.editor.dnd.OsgiEditingDomainDropTargetListener;
 import us.coastalhacking.semiotics.xcore.model.provider.SemioticsItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -945,7 +944,7 @@ public class SemioticsEditor
 			FileTransfer.getInstance()
 		};
 		viewer.addDragSupport(dndOperations, transfers, new ViewerDragAdapter(viewer));
-		viewer.addDropSupport(dndOperations, transfers, new OsgiEditingDomainViewerDropAdapter(editingDomain, viewer));
+		viewer.addDropSupport(dndOperations, transfers, new OsgiEditingDomainDropTargetListener(editingDomain));
 	}
 
 	/**

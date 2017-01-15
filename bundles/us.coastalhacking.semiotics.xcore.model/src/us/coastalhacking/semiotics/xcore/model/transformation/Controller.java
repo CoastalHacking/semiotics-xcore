@@ -5,4 +5,6 @@ import java.util.Collection;
 public interface Controller {
 
 	Collection<?> transform(Object source, Object target);
+	
+	boolean isSourceSupported(Object source);
 }

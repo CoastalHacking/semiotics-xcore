@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
    <feature url="features/us.coastalhacking.semiotics.xcore.feature_0.1.0.qualifier.jar" id="us.coastalhacking.semiotics.xcore.feature" version="0.1.0.qualifier">
-      <category name="semioticsapi"/>
+      <category name="semiotics"/>
    </feature>
-   <category-def name="semioticsapi" label="Semiotics API"/>
+   <feature url="features/us.coastalhacking.semiotics.xcore.ui.feature_0.1.0.qualifier.jar" id="us.coastalhacking.semiotics.xcore.ui.feature" version="0.1.0.qualifier">
+      <category name="semiotics"/>
+   </feature>
+   <category-def name="semiotics" label="Semiotics"/>
 </site>
