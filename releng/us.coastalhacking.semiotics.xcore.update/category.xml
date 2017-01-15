@@ -3,8 +3,15 @@
    <feature url="features/us.coastalhacking.semiotics.xcore.feature_0.1.0.qualifier.jar" id="us.coastalhacking.semiotics.xcore.feature" version="0.1.0.qualifier">
       <category name="semiotics"/>
    </feature>
+   <feature url="features/us.coastalhacking.semiotics.xcore.feature_0.1.0.qualifier.jar" id="us.coastalhacking.semiotics.xcore.feature.source" version="0.1.0.qualifier">
+      <category name="semiotics"/>
+   </feature>
    <feature url="features/us.coastalhacking.semiotics.xcore.ui.feature_0.1.0.qualifier.jar" id="us.coastalhacking.semiotics.xcore.ui.feature" version="0.1.0.qualifier">
       <category name="semiotics"/>
    </feature>
+   <feature url="features/us.coastalhacking.semiotics.xcore.ui.feature_0.1.0.qualifier.jar" id="us.coastalhacking.semiotics.xcore.ui.feature.source" version="0.1.0.qualifier">
+      <category name="semiotics"/>
+   </feature>
+
    <category-def name="semiotics" label="Semiotics"/>
 </site>
