@@ -8,7 +8,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.osgi.framework.BundleContext;
 import org.osgi.util.tracker.ServiceTracker;
 
-import us.coastalhacking.semiotics.xcore.model.transformation.Controller;
+import us.coastalhacking.semiotics.xcore.model.service.Controller;
 
 /**
  * This is the central singleton for the Semiotics editor plugin.

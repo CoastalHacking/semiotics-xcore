@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="Semiotics target platform" sequenceNumber="32">
+<locations>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20161122-1740"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="4.6.2.v20161124-1400"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.6/"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.swt.dummyfragments.feature.group" version="1.0.0.v20161122-0613"/>
+<repository location="http://eclipseguru.github.io/missing-swt-fragments/"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="com.google.guava" version="15.0.0.v201403281430"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository/"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="true" includeMode="slicer" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.jdt.feature.group" version="3.12.2.v20161124-1400"/>
+<unit id="org.eclipse.emf.ecore.xcore.lib.feature.group" version="1.2.100.v20160526-0606"/>
+<unit id="org.eclipse.xtext.xbase.lib.feature.group" version="2.10.0.v201605250459"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.12.0.v20160526-0356"/>
+<unit id="org.eclipse.jdt.source.feature.group" version="3.12.2.v20161124-1400"/>
+<unit id="org.eclipse.platform.feature.group" version="4.6.2.v20161124-1529"/>
+<unit id="org.eclipse.emf.feature.group" version="2.12.0.v20160526-0356"/>
+<repository location="http://download.eclipse.org/releases/neon"/>
+</location>
+</locations>
+<environment>
+<os>macosx</os>
+<ws>cocoa</ws>
+<arch>x86_64</arch>
+<nl>en_US</nl>
+</environment>
+</target>

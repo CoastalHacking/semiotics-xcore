@@ -14,5 +14,6 @@
 
 	<modules>
 		<module>us.coastalhacking.semiotics.xcore.update</module>
+		<module>us.coastalhacking.semiotics.xcore.target</module>
 	</modules>
 </project>

@@ -15,5 +15,6 @@
 	<modules>
 		<module>us.coastalhacking.semiotics.xcore.api.feature</module>
 		<module>us.coastalhacking.semiotics.xcore.ui.feature</module>
+		<module>us.coastalhacking.semiotics.xcore.dependencies.feature</module>
 	</modules>
 </project>

@@ -2,7 +2,10 @@ package us.coastalhacking.semiotics.xcore.editor.dnd;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Collection;
 
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.edit.command.DragAndDropCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.jface.util.LocalSelectionTransfer;
@@ -13,9 +16,16 @@ import org.eclipse.swt.dnd.FileTransfer;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.dnd.TransferData;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Item;
+import org.eclipse.swt.widgets.TableItem;
+import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.swt.widgets.Widget;
 
 import us.coastalhacking.semiotics.xcore.model.presentation.SemioticsEditorPlugin;
-import us.coastalhacking.semiotics.xcore.model.transformation.Controller;
+import us.coastalhacking.semiotics.xcore.model.service.Controller;
 
 public class OsgiEditingDomainDropTargetListener implements DropTargetListener {
 
@@ -51,10 +61,10 @@ public class OsgiEditingDomainDropTargetListener implements DropTargetListener {
 	@Override
 	public void dragEnter(DropTargetEvent event) {
 		switch (event.detail) {
-			case DND.DROP_COPY:
-				break;
-			default:
-				event.detail = ((event.operations & DND.DROP_COPY) != 0) ? DND.DROP_COPY : DND.DROP_NONE;
+		case DND.DROP_COPY:
+			break;
+		default:
+			event.detail = ((event.operations & DND.DROP_COPY) != 0) ? DND.DROP_COPY : DND.DROP_NONE;
 		}
 		if (event.detail == DND.DROP_NONE) return;
 
@@ -102,7 +112,18 @@ public class OsgiEditingDomainDropTargetListener implements DropTargetListener {
 	 */
 	@Override
 	public void drop(DropTargetEvent event) {
-
+		Controller controller = SemioticsEditorPlugin.getPlugin().getController();
+		if (controller != null) {
+			Object target = extractDropTarget(event.item);
+			Collection<?> sources = controller.transform(event.data, target);
+			Command command = DragAndDropCommand.create(domain, target, getLocation(event), event.operations, event.detail, sources);
+			if (command.canExecute()) {
+				domain.getCommandStack().execute(command);
+			} else {
+				event.detail = DND.DROP_NONE;
+				command.dispose();
+			}
+		}
 	}
 
 	/* (non-Javadoc)
@@ -110,10 +131,7 @@ public class OsgiEditingDomainDropTargetListener implements DropTargetListener {
 	 */
 	@Override
 	public void dropAccept(DropTargetEvent event) {
-		Controller controller = SemioticsEditorPlugin.getPlugin().getController();
-		if (controller != null) {
-			// final Collection<?> results = controller.transform(source, target);
-		}
+
 	}
 
 	/**
@@ -166,7 +184,58 @@ public class OsgiEditingDomainDropTargetListener implements DropTargetListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return result;
 	}
+
+	/**
+	 * 
+	 * !!!CODE COPY, UPDATE LICENSE!!!
+	 * Copied from org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter.extractDropTarget(Widget)
+	 * 
+	 * This extracts an object from the given item widget, providing the special
+	 * support required by an 
+	 * {@link org.eclipse.emf.common.ui.viewer.ExtendedTableTreeViewer.ExtendedTableTreeItem}.
+	 */
+	@SuppressWarnings("deprecation")
+	protected Object extractDropTarget(Widget item)
+	{
+		if (item == null) return null;
+		return item.getData(org.eclipse.emf.common.ui.viewer.ExtendedTableTreeViewer.ITEM_ID) instanceof Item ?
+				((Item)item.getData(org.eclipse.emf.common.ui.viewer.ExtendedTableTreeViewer.ITEM_ID)).getData() :
+					item.getData();
+	}
+
+	/**
+	 * 
+	 * !!!CODE COPY, UPDATE LICENSE!!!
+	 * Copied from org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter.getLocation(DropTargetEvent)
+	 * 
+	 * This returns the location of the mouse in the vertical direction, relative
+	 * to the item widget, from 0 (top) to 1 (bottom).
+	 */
+	protected float getLocation(DropTargetEvent event) 
+	{
+		if (event.item instanceof TreeItem)
+		{
+			TreeItem treeItem = (TreeItem)event.item;
+			Control control = treeItem.getParent();
+			Point point = control.toControl(new Point(event.x, event.y));
+			Rectangle bounds = treeItem.getBounds();
+			return (float)(point.y - bounds.y) / (float)bounds.height;
+		}
+		else if (event.item instanceof TableItem)
+		{
+			TableItem tableItem = (TableItem)event.item;
+			Control control = tableItem.getParent();
+			Point point = control.toControl(new Point(event.x, event.y));
+			Rectangle bounds = tableItem.getBounds(0);
+			return (float)(point.y - bounds.y) / (float)bounds.height;
+		}
+		else
+		{
+			return 0.0F;
+		}
+	}
+
 }

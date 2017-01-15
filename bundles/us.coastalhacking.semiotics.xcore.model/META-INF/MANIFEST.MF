@@ -9,7 +9,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: us.coastalhacking.semiotics.xcore.model,
  us.coastalhacking.semiotics.xcore.model.impl,
- us.coastalhacking.semiotics.xcore.model.transformation,
+ us.coastalhacking.semiotics.xcore.model.service,
  us.coastalhacking.semiotics.xcore.model.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,

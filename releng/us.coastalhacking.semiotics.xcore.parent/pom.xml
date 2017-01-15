@@ -12,17 +12,7 @@
 		<tycho.version>0.26.0</tycho.version>
 		<tycho.extras.version>${tycho.version}</tycho.extras.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<eclipse.repo.url>http://download.eclipse.org/releases/neon</eclipse.repo.url>
 	</properties>
-
-	<repositories>
-		<repository>
-			<id>neon</id>
-			<url>${eclipse.repo.url}</url>
-			<layout>p2</layout>
-		</repository>
-
-	</repositories>
 
 	<build>
 		<plugins>
@@ -38,6 +28,13 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho.version}</version>
 				<configuration>
+					<target>
+						<artifact>
+							<groupId>us.coastalhacking.semiotics.xcore</groupId>
+							<artifactId>us.coastalhacking.semiotics.xcore.target</artifactId>
+							<version>0.1.0-SNAPSHOT</version>
+						</artifact>
+					</target>
 					<environments>
 						<environment>
 							<os>linux</os>
@@ -76,6 +73,21 @@
 				<configuration>
 					<excludes>
 						<!-- provide plug-ins not containing any source code -->
+						<plugin id="org.eclipse.ui.ide" />
+						<plugin id="org.eclipse.core.resources" />
+						<plugin id="org.eclipse.jdt.core" />
+						<plugin id="org.eclipse.jface" />
+						<feature id="org.eclipse.emf.common" />
+						<feature id="org.eclipse.emf.common.ui" />
+						<feature id="org.eclipse.emf.ecore" />
+						<feature id="org.eclipse.emf.ecore.edit" />
+						<feature id="org.eclipse.emf.ecore.editor" />
+						<feature id="org.eclipse.emf.ecore.xcore.lib" />
+						<feature id="org.eclipse.emf.edit" />
+						<feature id="org.eclipse.emf.edit.ui" />
+						<feature id="org.eclipse.swt.dummyfragments" />
+						<feature id="org.eclipse.xtext.xbase.lib" />
+						<feature id="us.coastalhacking.semiotics.xcore.dependencies.feature" />
 					</excludes>
 				</configuration>
 			</plugin>
